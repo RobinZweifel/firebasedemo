@@ -93,3 +93,16 @@ function addUser(){
     })
     loadData();
 }
+
+function updateUser(){
+    var input = document.getElementById("tf").value;
+
+    console.log("inside Update methode");
+
+    db.collection("Users")
+        .doc("user1")
+        .update({
+            "firstName": input,
+            "lastName": "Zweifel"
+            });
+}
