@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", event => {
 const db = firebase.firestore();
 const user1 = db.collection('Users').doc('user1');
 const user2 = db.collection('Users').doc('user2');
-var loggedIn = false;
+var loggedIn = true;
 
-
+//automaticaly update data
 /*
 myData.onSnapshot(doc => {
     const data = doc.data();
@@ -17,7 +17,6 @@ myData.onSnapshot(doc => {
 });
 
 */
-
 
 //Simple Get to get Data
 /*
@@ -76,7 +75,21 @@ function googleLogin() {
                 loggedIn = true;
             }
         })
-        .catch(console.log)
-        
+        .catch(console.log) 
 }
 
+function changeName(){
+
+}
+
+function deleteUser(){
+    user1.delete();
+}
+
+function addUser(){
+    db.collection("Users").doc("user1").set({
+        firstName: "Robin",
+        lastName: "Zweifel"
+    })
+    loadData();
+}
